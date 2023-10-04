@@ -17,8 +17,8 @@ export const AppDataSource = new DataSource({
   username: 'developer',
   password: 'developer',
   database: 'TypeOrm',
-  // entities: ['entities/**/*.entity{.ts,.js}', 'entities/**/*.schema{.ts,.js}'],
-  entities: [Category, Supplier, Customer, Employee, Product, Order, OrderDetail],
+  entities: ['entities/**/*.entity{.ts,.js}', 'entities/**/*.schema{.ts,.js}'],
+  // entities: [Category, Supplier, Customer, Employee, Product, Order, OrderDetail],
   synchronize: true,
   logging: false,
   options: {
