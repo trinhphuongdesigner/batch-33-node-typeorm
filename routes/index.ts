@@ -40,7 +40,7 @@ router.get('/call-raw-sql', async (req: Request, res: Response, next: any) => {
 // Call store procedure
 router.get('/call-stored-procedure', async (req: Request, res: Response, next: any) => {
   try {
-    const results = await repository.manager.connection.query('EXECUTE [dbo].[usp_Products_GetByDiscount] @0', [5]);
+    const results = await repository.manager.connection.query('EXECUTE [dbo].[usp_Products_GetByDiscount] @0', [5, "abc"]);
     res.json(toCamelCase(results));
   } catch (error) {
     console.error(error);
@@ -50,7 +50,7 @@ router.get('/call-stored-procedure', async (req: Request, res: Response, next: a
 
 router.get('/get-all-orders', async (req: Request, res: Response, next: any) => {
   try {
-    const results = await repository.manager.connection.query('EXECUTE [dbo].[usp_Orders_GetAll]', []);
+    const results = await repository.manager.connection.query('EXECUTE [dbo].[usp_Orders_GetAll2]', []);
     res.json(toCamelCase(results));
   } catch (error) {
     console.error(error);

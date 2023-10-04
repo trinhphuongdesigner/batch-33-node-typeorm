@@ -11,7 +11,7 @@ export class Category extends BaseEntity {
   // NAME
   // ----------------------------------------------------------------------------------------------
   @IsNotEmpty({ message: 'Name is required' })
-  @Length(1, 5, { message: '[$property] of [$target]: [$value] must be greater than $constraint1 and less than $constraint2 characters' })
+  @Length(2, 50, { message: '[$property] of [$target]: [$value] must be greater than $constraint1 and less than $constraint2 characters' })
   @Column({ name: 'Name', unique: true, type: 'nvarchar', length: 100 })
   name: string;
 

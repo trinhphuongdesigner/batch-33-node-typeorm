@@ -8,7 +8,7 @@ export interface CategoryInterface {
 
 export const SeparatingCategory = new EntitySchema<CategoryInterface>({
   tableName: 'SeparatingCategories',
-  name: 'separatingCategories',
+  name: 'SeparatingCategories',
   columns: {
     id: {
       type: Number,

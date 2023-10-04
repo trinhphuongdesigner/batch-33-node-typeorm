@@ -1,7 +1,7 @@
 require('dotenv').config();
 import 'reflect-metadata';
-
 import { DataSource } from 'typeorm';
+
 import { Category } from './entities/category.entity';
 import { Supplier } from './entities/supplier.entity';
 import { Customer } from './entities/customer.entity';

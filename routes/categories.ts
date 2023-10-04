@@ -16,7 +16,7 @@ router.get('/', async (req: Request, res: Response, next: NextFunction) => {
         error: 'No content',
       });
     } else {
-      res.json(categories);
+      res.status(200).json(categories);
     }
   } catch (error) {
     console.error(error);
@@ -41,8 +41,16 @@ router.get('/:id', async (req: Request, res: Response, next: any) => {
 /* POST category */
 router.post('/', async (req: Request, res: Response, next: any) => {
   try {
-    const category = new Category();
-    Object.assign(category, req.body);
+    let category = new Category();
+    // const { name, description } = req.body;
+    // category.name = name;
+    // category.description = description;
+    
+    category = {
+      ...category,
+      ...req.body,
+    }
+    // Object.assign(category, req.body);
 
     // MANUAL VALIDATION
     // const errors = await category.validate();
@@ -63,6 +71,7 @@ router.post('/', async (req: Request, res: Response, next: any) => {
 /* PATCH category */
 router.patch('/:id', async (req: Request, res: Response, next: any) => {
   try {
+    console.log('««««« hello »»»»»');
     const category = await repository.findOneBy({ id: parseInt(req.params.id) });
     if (!category) {
       return res.status(404).json({ error: 'Not found' });
